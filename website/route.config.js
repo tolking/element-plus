@@ -44,7 +44,7 @@ const load = function(lang, path) {
 
 const LOAD_DOCS_MAP = {
   [Language.CN]: path => {
-    return getAsyncComponent(() => import(/* webpackChunkName: "DOCS zh-CN" */ `./docs/zh-CN${path}.md`))
+    return () => import(`./docs/zh-CN${path}.md`)
   },
   [Language.EN]: path => {
     return getAsyncComponent(() => import(/* webpackChunkName: "DOCS en-US" */ `./docs/en-US${path}.md`))

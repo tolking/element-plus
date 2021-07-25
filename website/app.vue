@@ -1,10 +1,10 @@
-<script>
-import { defineComponent, h, computed, watch, getCurrentInstance, onMounted } from 'vue'
+<script lang="ts">
+import { defineComponent, h, computed, watch, onMounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
 import { ElScrollbar } from 'element-plus'
 import { ElMessageBox } from 'element-plus'
-import MainHeader from './components/header'
-import MainFooter from './components/footer'
+import MainHeader from './components/header.vue'
+import MainFooter from './components/footer.vue'
 import { use } from '@element-plus/locale'
 import zhLocale from '@element-plus/locale/lang/zh-cn'
 import enLocale from '@element-plus/locale/lang/en'
