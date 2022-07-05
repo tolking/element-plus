@@ -26,6 +26,7 @@ import {
 import { useNamespace } from '@element-plus/hooks'
 import { ArrowDown, ArrowRight } from '@element-plus/icons-vue'
 import { ElIcon } from '@element-plus/components/icon'
+import { EVENT_CODE } from '@element-plus/constants'
 import useMenu from './use-menu'
 import { useMenuCssVar } from './use-menu-css-var'
 
@@ -274,6 +275,24 @@ export default defineComponent({
       }
     }
 
+    const openSubMenu = () => {
+      rootMenu.handleSubMenuClick({
+        index: props.index,
+        indexPath: indexPath.value,
+        active: active.value,
+      })
+    }
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.code === EVENT_CODE.enter) {
+        openSubMenu()
+      }
+    }
+
+    const handleFocus = () => {
+      rootMenu.isMenuPopup && openSubMenu()
+    }
+
     watch(
       () => rootMenu.props.collapse,
       (value) => handleCollapseToggle(Boolean(value))
@@ -451,12 +470,15 @@ export default defineComponent({
             nsSubMenu.is('opened', opened.value),
             nsSubMenu.is('disabled', props.disabled),
           ],
-          role: 'menuitem',
+          role: 'button',
+          tabindex: props.disabled ? -1 : 0,
           ariaHaspopup: true,
           ariaExpanded: opened.value,
           onMouseenter: handleMouseenter,
           onMouseleave: () => handleMouseleave(true),
-          onFocus: handleMouseenter,
+          onKeydown: handleKeydown,
+          onFocus: handleFocus,
+          onBlur: handleMouseleave,
         },
         [child]
       )

@@ -340,9 +340,10 @@ export default defineComponent({
 
     // lifecycle
     onMounted(() => {
-      if (props.mode === 'horizontal') {
-        new Menubar(instance.vnode.el!, nsMenu.namespace.value)
-      }
+      initMenu()
+      // if (props.mode === 'horizontal') {
+      //   new Menubar(instance.vnode.el!, nsMenu.namespace.value)
+      // }
     })
 
     {
