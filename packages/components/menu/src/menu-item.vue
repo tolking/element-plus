@@ -5,9 +5,10 @@
       nsMenuItem.is('active', active),
       nsMenuItem.is('disabled', disabled),
     ]"
+    :tabindex="disabled ? -1 : 0"
     role="menuitem"
-    tabindex="-1"
-    @click="handleClick"
+    @mousedown="handleClick"
+    @keydown.enter="handleClick"
   >
     <el-tooltip
       v-if="

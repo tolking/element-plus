@@ -29,10 +29,11 @@
     color: inherit;
   }
 
-  &:hover,
-  &:focus {
-    outline: none;
-  }
+  // TODO:
+  // &:hover,
+  // &:focus {
+  //   outline: none;
+  // }
 
   &:hover {
     background-color: getCssVar('menu-hover-bg-color');
@@ -99,10 +100,11 @@
       }
     }
     & > .#{$namespace}-sub-menu {
-      &:focus,
-      &:hover {
-        outline: none;
-      }
+      // TODO:
+      // &:focus,
+      // &:hover {
+      //   outline: none;
+      // }
 
       &:hover {
         .#{$namespace}-sub-menu__title {
@@ -156,7 +158,8 @@
     }
     & .#{$namespace}-menu-item:not(.is-disabled):hover,
     & .#{$namespace}-menu-item:not(.is-disabled):focus {
-      outline: none;
+      // TODO:
+      // outline: none;
       color: getCssVar('menu-hover-text-color');
       background-color: getCssVar('menu-hover-bg-color');
     }

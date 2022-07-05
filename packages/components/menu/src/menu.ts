@@ -284,9 +284,9 @@ export default defineComponent({
     // lifecycle
     onMounted(() => {
       initMenu()
-      if (props.mode === 'horizontal') {
-        new Menubar(instance.vnode.el!, nsMenu.namespace.value)
-      }
+      // if (props.mode === 'horizontal') {
+      //   new Menubar(instance.vnode.el!, nsMenu.namespace.value)
+      // }
     })
 
     {
